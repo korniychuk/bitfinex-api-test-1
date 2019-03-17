@@ -7,7 +7,9 @@
     "test": "test"
   },
   "dependencies": {
-    "bitfinex-api-node": "^2.0.4"
+    "bitfinex-api-node": "^2.0.4",
+    "cli-table2": "^0.2.0",
+    "dotenv": "^7.0.0"
   },
   "devDependencies": {},
   "scripts": {

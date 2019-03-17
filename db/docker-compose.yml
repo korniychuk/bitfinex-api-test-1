@@ -1,0 +1,37 @@
+# Use postgres/example user/password credentials
+version: '3.1'
+
+services:
+
+  db:
+    image: postgres
+    restart: always
+    volumes:
+      - ./postgres/data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: example
+    networks:
+      - common
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+
+  pg-admin:
+    image: dpage/pgadmin4
+    ports:
+      - 8001:80
+    volumes:
+      - ./pg-admin/data:/var/lib/pgadmin
+#      - ./pg-admin/data/certs:/certs
+      - ./pg-admin/servers.json:/servers.json
+    environment:
+      - PGADMIN_DEFAULT_EMAIL:postgres@db
+      - PGADMIN_DEFAULT_PASSWORD:example
+#      PGADMIN_ENABLE_TLS: 'True'
+
+networks:
+  common:
+    external: true

@@ -137,3 +137,5 @@ fabric.properties
 
 # Project specific
 /bitfinex-api-node
+/db/pg-admin
+/db/postgres

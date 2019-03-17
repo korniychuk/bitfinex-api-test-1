@@ -2,32 +2,34 @@
 
 require('dotenv').config()
 
-const BFX = require('../')
-const SocksProxyAgent = require('socks-proxy-agent')
+const BFX = require('bitfinex-api-node');
+// const SocksProxyAgent = require('socks-proxy-agent')
 
 const { API_KEY, API_SECRET, REST_URL, WS_URL, SOCKS_PROXY_URL } = process.env
-const agent = SOCKS_PROXY_URL ? new SocksProxyAgent(SOCKS_PROXY_URL) : null
+const agent = /*SOCKS_PROXY_URL
+              ? new SocksProxyAgent(SOCKS_PROXY_URL)
+              :*/ null;
 
 const bfx = new BFX({
-  apiKey: API_KEY,
-  apiSecret: API_SECRET,
+    apiKey:    API_KEY,
+    apiSecret: API_SECRET,
 
-  ws: {
-    url: WS_URL,
-    agent
-  },
+    ws: {
+        url: WS_URL,
+        agent
+    },
 
-  rest: {
-    url: REST_URL,
-    agent
-  }
+    rest: {
+        url: REST_URL,
+        agent
+    }
 })
 
-module.exports = bfx
+module.exports      = bfx
 module.exports.args = {
-  apiKey: API_KEY,
-  apiSecret: API_SECRET,
-  wsURL: WS_URL,
-  restURL: REST_URL,
-  agent
+    apiKey:    API_KEY,
+    apiSecret: API_SECRET,
+    wsURL:     WS_URL,
+    restURL:   REST_URL,
+    agent
 }
