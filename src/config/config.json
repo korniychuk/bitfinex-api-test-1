@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "bitfinex_test_1",
+    "password": "qweqwe",
+    "database": "bitfinex_test_1_db",
+    "host": "http://192.168.99.100",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "bitfinex_test_1",
+    "password": "qweqwe",
+    "database": "database_test",
+    "host": "http://192.168.99.100",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "bitfinex_test_1",
+    "password": "qweqwe",
+    "database": "database_production",
+    "host": "http://192.168.99.100",
+    "dialect": "postgres"
+  }
+}
